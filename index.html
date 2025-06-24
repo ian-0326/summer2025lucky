@@ -87,7 +87,6 @@
 <body>
   <div id="standby">
     <video id="standby-video" src="standby_loop.mp4" autoplay muted loop playsinline></video>
-    <button id="sound-toggle" title="開啟聲音"><img src="speaker.svg" /></button>
     <button id="start-button">我是救生員</button>
   </div>
 
@@ -138,11 +137,6 @@
       }
       return prizes[prizes.length - 1];
     }
-
-    soundBtn.onclick = () => {
-      standbyVideo.muted = !standbyVideo.muted;
-    };
-
     startBtn.onclick = () => {
       standby.style.display = "none";
       drawContainer.style.display = "flex";
