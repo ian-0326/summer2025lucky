@@ -39,7 +39,7 @@
     }
 
     #result-screen {
-      background: url('assets/assets/result_bg.png') center center / cover no-repeat;
+      background: url('result_bg.png') center center / cover no-repeat;
       z-index: 2;
     }
 
@@ -86,18 +86,18 @@
 </head>
 <body>
   <div id="standby">
-    <video id="standby-video" src="assets/assets/standby_loop.mp4" autoplay muted loop playsinline></video>
-    <button id="sound-toggle" title="開啟聲音"><img src="assets/assets/speaker.svg" /></button>
+    <video id="standby-video" src="standby_loop.mp4" autoplay muted loop playsinline></video>
+    <button id="sound-toggle" title="開啟聲音"><img src="speaker.svg" /></button>
     <button id="start-button">我是救生員</button>
   </div>
 
   <div id="draw-container">
-    <video id="draw-video" src="assets/assets/draw_video.mp4" playsinline></video>
+    <video id="draw-video" src="draw_video.mp4" playsinline></video>
     <div id="danmu-layer"></div>
   </div>
 
   <div id="result-screen">
-    <button id="return-button"><img src="assets/assets/home.svg" /></button>
+    <button id="return-button"><img src="home.svg" /></button>
     <div id="result-content">
       <img id="result-image" />
       <div id="result-text"></div>
@@ -123,10 +123,10 @@
       "連我阿嬤都說棒！🤣", "比去原廠還快耶！", "貼心到不行的維修店", "Google五星真的名不虛傳", "來一次就成主顧❤️"
     ];
     const prizes = [
-      { name: "維修&配件折扣金100元", image: "assets/assets/coupon.png", chance: 0.3 },
-      { name: "麂皮螢幕擦拭布", image: "assets/assets/cloth.png", chance: 0.2 },
-      { name: "保貼兌換券", image: "assets/assets/screen_protector.png", chance: 0.1 },
-      { name: "活動貼紙", image: "assets/assets/sticker.png", chance: 0.4 },
+      { name: "維修&配件折扣金100元", image: "coupon.png", chance: 0.3 },
+      { name: "麂皮螢幕擦拭布", image: "cloth.png", chance: 0.2 },
+      { name: "保貼兌換券", image: "screen_protector.png", chance: 0.1 },
+      { name: "活動貼紙", image: "sticker.png", chance: 0.4 },
     ];
 
     function getPrize() {
