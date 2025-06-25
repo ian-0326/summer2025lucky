@@ -122,21 +122,35 @@
       "連我阿嬤都說棒！🤣", , "太神了！維修後簡直跟新的一樣", , "絕對要推薦更多人來體驗的啦", "比去原廠還快耶！", "貼心到不行的維修店", "Google五星真的名不虛傳", "來一次就成主顧❤️"
     ];
     const prizes = [
-      { name: "維修&配件折扣金100元", image: "coupon.png", chance: 0.3 },
-      { name: "麂皮螢幕擦拭布", image: "cloth.png", chance: 0.2 },
-      { name: "保貼兌換券", image: "screen_protector.png", chance: 0.1 },
-      { name: "活動貼紙", image: "sticker.png", chance: 0.4 },
+  { name: "維修&配件折扣金100元", image: "coupon.png", chance: 0.3, max: null, count: 0 },
+  { name: "麂皮螢幕擦拭布", image: "cloth.png", chance: 0.2, max: 30, count: 0 },
+  { name: "保貼兌換券", image: "screen_protector.png", chance: 0.1, max: 5, count: 0 },
+  { name: "活動貼紙", image: "sticker.png", chance: 0.4, max: null, count: 0 },
     ];
 
     function getPrize() {
-      const r = Math.random();
-      let total = 0;
-      for (const prize of prizes) {
-        total += prize.chance;
-        if (r <= total) return prize;
+  let candidate = null;
+  let attempts = 0;
+  while (!candidate && attempts < 50) {
+    const r = Math.random();
+    let total = 0;
+    for (const prize of prizes) {
+      total += prize.chance;
+      if (r <= total) {
+        if (prize.max === null || prize.count < prize.max) {
+          candidate = prize;
+        }
+        break;
       }
-      return prizes[prizes.length - 1];
     }
+    attempts++;
+  }
+
+  if (!candidate) candidate = prizes.find(p => p.max === null); // fallback
+
+  candidate.count++;
+  return candidate;
+}
     startBtn.onclick = () => {
       standby.style.display = "none";
       drawContainer.style.display = "flex";
