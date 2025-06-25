@@ -155,12 +155,10 @@
   standby.style.display = "none";
   drawContainer.style.display = "flex";
   drawVideo.currentTime = 0;
-  drawVideo.playbackRate = 1.25;
   drawVideo.muted = false;
   drawVideo.play();
   startDanmu();
 };
-
     drawVideo.onended = () => {
       drawContainer.style.display = "none";
       resultScreen.style.display = "flex";
