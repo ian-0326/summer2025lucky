@@ -152,13 +152,14 @@
   return candidate;
 }
     startBtn.onclick = () => {
-      standby.style.display = "none";
-      drawContainer.style.display = "flex";
-      drawVideo.currentTime = 0;
-      drawVideo.muted = false;
-      drawVideo.play();
-      startDanmu();
-    };
+  standby.style.display = "none";
+  drawContainer.style.display = "flex";
+  drawVideo.currentTime = 0;
+  drawVideo.playbackRate = 1.5;
+  drawVideo.muted = false;
+  drawVideo.play();
+  startDanmu();
+};
 
     drawVideo.onended = () => {
       drawContainer.style.display = "none";
